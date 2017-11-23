@@ -1,0 +1,406 @@
+/*AULA DE LABORATORIO DE PROGRAMAÇÃO
+ * EXERCICIOS SOBRE A LINGUAGEM C
+ * OVERVIEW DA LINGUAGEM
+ * LAÇOS DE REPETIÇÃO
+ * SLIDE 03 (OS EXERCICIOS DISPONIVEIS NO AVA)
+ * AULA DO DIA 08/11/17
+ * LAB 05 - DONALD KNUTH
+ * EXERCICIOS E SOLUÇÕES ORGAMIZADOS EM FORMA DE MENU
+ * */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+
+	int resp;
+
+	/*int n, c, r;
+	printf("\n\t\tDigite um numero entre 1 e 10: ");
+	scanf("%i", &n);
+	for(c = 1; c <= 10; c++) {
+		r = n * c;
+		printf("\n\t\t %i x %i = %i", n, c, r);
+	}*/
+
+
+    printf("\t\t----------------------------------------------------------------\n\n");
+	printf("\t\tLISTA DOS EXERCICIOS DO DIA 08/11/2017\n\n");
+	printf("\t\tESCOLHA UMA DAS OPCOES ABAIXO PARA EXECUTAR O EXERCICIO\n\n");
+	printf("\t\t----------------------------------------------------------------\n\n");
+	printf("\t\tEXERCICIO 1 - CONTAGEM REGRESSIVA\n\n");
+	printf("\t\tEXERCICIO 2 - POLEGADA/CENTIMETRO\n\n");
+	printf("\t\tEXERCICIO 3 - POTENCIA\n\n");
+	printf("\t\tEXERCICIO 4 - FATORIAL (SEM RECURSIVIDADE)\n\n");
+	printf("\t\tEXERCICIO 5 - POTENCIA COM SOMA DE IMPARES\n\n");
+	printf("\t\tEXERCICIO 6 - CONTA BANCO\n\n");
+	printf("\t\tEXERCICIO 7 - TRIANGULAR\n\n");
+	printf("\t\tEXERCICIO 8 - MAIOR/MENOR IDADE\n\n");
+	printf("\t\tEXERCICIO 9 - CAIXA\n\n");
+	printf("\t\tEXERCICIO 10 - SALDO BANCO\n\n");
+	printf("\t\t----------------------------------------------------------------\n\n\t\t");
+	scanf("%i", &resp);
+    system("clear");
+
+	switch(resp)
+	{
+	    case 1: {
+
+           //EXERCICIO 01
+
+            /*Dado um valor n, exiba uma contagem regressiva*/
+
+            int i, n;
+
+            printf("\t\tDigite um numero qualquer\n\n\t\t");
+            scanf("%i", &n);
+            system("clear");
+
+            for(i = 0; i <= n; n--) {
+
+                printf("\n %i", n);
+
+            }
+            break;
+	    }
+	    case 2: {
+
+            //EXERCICIO 02
+
+            /*Exiba uma tabela de conversão de polegadas em centímetros, variando as polegadas de 0 a 10 de meio em meio.
+            [Dica: 1" = 2.54cm]*/
+
+
+             float i, cm;
+
+             for(i = 0; i <= 10; i += 0.5) {
+
+                cm = i * 2.54;
+
+                printf("\n\n\t\t%.2f polegada equivale a %.2f centimetros\t\t\n\n", i, cm);
+
+             }
+             break;
+	    }
+	    case 3: {
+
+             //EXERCICIO 03
+
+             /*Dado um numero real x e n natural, exiba a potencia de x^n*/
+
+
+             int x, n, i;
+             int pot = 1;
+
+             printf("\n\n\t\tDigite um numero\n\n\t\t");
+             scanf("%i", &x);
+             printf("\n\n\t\tDigite um outro numero para ser potencia\n\n\t\t");
+             scanf("%i", &n);
+
+
+             for(i = 1; i <= n; i++) {
+
+                pot *= x;
+
+             }
+
+             printf("\n\n\t\t%i elevado a %i = %i", x, n, pot);
+             break;
+
+	    }
+	    case 4: {
+
+           //EXERCICIO 04
+
+            /*Dados um número natural n, exiba seu fatorial n!.*/
+
+            int n, i, fat = 1;
+
+            printf("\t\tDigite o numero para fatorar:\n\n\t\t");
+            scanf("%i", &n);
+
+            i = n;
+
+            for(; n >= 1; n--) {
+
+                fat *= n;
+
+            }
+
+            printf("\n\n\t\tO fatorial de %i e = %i\n\n", i, fat);
+            break;
+
+	    }
+	    case 5: {
+
+            //EXERCICIO 05
+
+            /*O quadrado de um número natural n é dado pela soma dos
+            n primeiros números ímpares consecutivos. Por exemplo,
+            1ˆ2=1, 2ˆ2=1+3, 3ˆ2=1+3+5, 4ˆ2=1+3+5+7, etc. Dado um
+            número n, calcule seu quadrado usando a soma de ímpares
+            ao invés de produto. */
+
+
+            int n, i, quadrado = 0;
+
+            printf("\t\tDigite um numero natural qualquer\n\n\t\t");
+            scanf("%d", &n);
+            system("clear");
+
+            for (i = 0; i < n; i++) {
+
+                    quadrado += (i * 2) + 1;
+
+            }
+
+            printf("\t\tO quadrado do numero digitado na soma de impares e = %d\n\n", quadrado);
+            break;
+
+	    }
+	    case 6: {
+
+            //EXERCICIO 06
+
+            /*Numa certa agência bancária, as contas são identificadas por
+             números de até seis dígitos seguidos de um dígito verificador,
+             calculado conforme exemplificado a seguir. Dado um número
+             de conta n, exiba o número de conta completo correspondente.
+             Seja n = 7314 o número da conta.
+             1) Adicionamos os dígitos de n e obtemos a soma s = 4+1+3+7 = 15;
+             2) Calculamos o resto da divisão de s por 10 e obtemos o dígito d = 5.
+             Número de conta completo: 007314−5*/
+
+
+             int conta, s = 0, i, d, aux;
+
+             printf("\t\tDigite o numero da conta\n\n\t\t");
+             scanf("%d", &conta);
+             system("clear");
+
+             aux = conta;
+
+             while(conta != 0) {
+
+                i = conta % 10;
+                conta /= 10;
+                s += i;
+
+             }
+
+             d = s % 10;
+
+             printf("\t\tNumero de conta completo: 00%d-%d\n\n", aux, d);
+             break;
+
+	    }
+	    case 7: {
+
+            //EXERCICIO 07
+
+            /*Um número natural é triangular se é igual à soma dos n
+             primeiros números naturais consecutivos, a partir de 1. Por
+             exemplo, 1, 3, 6, 10, 15, ... são triangulares. Dado um
+             natural n≥1, informe se ele é triangular.*/
+
+
+             int n, cont = 0, i, t;;
+
+             printf("\t\tDigite um numero natural qualquer\n\n\t\t");
+             scanf("%d", &n);
+             system("clear");
+
+             for (i = 1; i <= n; i++) {
+
+                if (n == cont || n == 1) {
+
+                printf("\t\tO NUMERO DIGITADO E TRIANGULAR!\n\n");
+                t = 1;
+                break;
+
+                }
+                else {
+
+                    cont += i;
+
+                }
+             }
+
+             if (t != 1) {
+
+                printf("\t\tO NUMERO DIGITADO NAO E TRIANGULAR!\n\n");
+
+             }
+
+             break;
+
+            }
+            case 8: {
+
+                //EXERCICIO 08
+
+                /*Dada uma série de números positivos (ﬁnalizada com um valor nulo)
+                que representam as idades das pessoas que moram num certo bairro,
+                determine a idade da pessoa mais nova e a da pessoa mais velha.*/
+
+                int n, maior, menor;
+
+                printf("\t\tDigite a idade da pessoa\n\n\t\t");
+                scanf("%d", &n);
+
+                menor = n;
+                maior = n;
+
+                do {
+
+                    system("clear");
+                    printf("\t\tDigite a idade da pessoa\n\n\t\t");
+                    scanf("%d", &n);
+
+                    if ((n <= menor) && (n > 0)) {
+
+                        menor = n;
+
+                    }
+                    else if (n >= maior) {
+
+                        maior = n;
+
+                    }
+                }
+                while (n > 0);
+
+                system("clear");
+                printf("\n\n\t\tA menor idade digitada foi: %d\n\n\t\t", menor);
+                printf("A maior idade digitada foi: %d\n\n\t\t", maior);
+                break;
+
+            }
+            case 9: {
+
+                //EXERCICIO 09
+
+                /*Um comerciante precisa informatizar o caixa de sua loja.
+                Para isso ele precisa de um programa que leia uma série de valores correspondendo
+                aos preços das mercadorias compradas por um cliente (o valor zero ﬁnaliza a entrada),
+                calcule o valor total, subtraia deste valor o desconto devido (vide tabela abaixo)
+                e, ﬁnalmente, mostre o valor a ser pago pelo cliente. Codiﬁque esse programa*/
+
+                float val, total = 0, tLiquido = 0;
+
+                do {
+
+                    system("clear");
+                    printf("\t\tDigite o preco do produto (0 para TOTAL A PAGAR)\n\n\t\t");
+                    scanf("%f", &val);
+
+                    total += val;
+
+                }
+                while (val > 0);
+
+                if (total < 50) {
+
+                    tLiquido = total - (total * 0.05);
+                    printf("\n\n\t\tO cliente deve pagar R$ %.2f\n\n", tLiquido);
+                }
+                else if (total <= 100) {
+
+                    tLiquido = total - (total * 0.10);
+                    printf("\n\n\t\tO cliente deve pagar R$ %.2f\n\n", tLiquido);
+                }
+                else if (total <= 200) {
+
+                    tLiquido = total - (total * 0.15);
+                    printf("\n\n\t\tO cliente deve pagar R$ %.2f\n\n", tLiquido);
+                }
+                else {
+
+                    tLiquido = total - (total * 0.20);
+                    printf("\n\n\t\tO cliente deve pagar R$ %.2f\n\n", tLiquido);
+                }
+                break;
+
+            }
+            case 10: {
+
+                //EXERCICIO 10
+
+                /*Faça um programa que calcule o saldo de uma conta bancária tendo como entrada o saldo inicial
+                e uma série de operações de crédito e/ou débito ﬁnalizada com o valor zero.
+                O programa deve apresentar como saída o total de créditos, o total de débitos,
+                a C.P.M.F. paga (0,35% do total de débitos) e o saldo ﬁnal.*/
+
+                float saldoini, totcred = 0, totdeb = 0, cpmf = 0, saldof = 0, val;
+                char op;
+
+                printf("\t\tQual o saldo inicial da conta?\n\n\t\t");
+                scanf("%f", &saldoini);
+
+                do {
+
+                    system("clear");
+                    printf("\t\tDigite o codigo da operacao de credito (+) ou debito (-) (0 PARA VER SALDO)\n\t\t");
+                    scanf(" %c", &op);
+
+                    switch (op)
+                    {
+
+                        case '+': {
+
+                            printf("\n\n\t\tDigite o valor da operacao:\n\n\t\t");
+                            scanf("%f", &val);
+                            totcred += val;
+                            break;
+
+                        }
+                        case '-': {
+
+                            printf("\n\n\t\tDigite o valor da operacao:\n\n\t\t");
+                            scanf("%f", &val);
+                            totdeb += val;
+                            break;
+
+                        }
+                    }
+                }
+                while (op != '0');
+
+                system("clear");
+                cpmf = totdeb * 0.0035;
+                saldof = ((saldoini - totdeb) + totcred) - cpmf;
+                printf("\n\n\t\tTOTAL DE CREDITOS: R$ %.2f\n\t\t", totcred);
+                printf("TOTAL DE DEBITOS: R$ %.2f\n\t\t", totdeb);
+                printf("CPFM PAGA: R$ %.2f\n\t\t", cpmf);
+                printf("SALDO FINAL: R$ %.2f\n\n\t\t", saldof);
+                break;
+
+            }
+         }
+
+
+	 //EXIBIR DIGITOS DE UM NUMERO, DEMONSTRAÇÃO DO WHILE
+
+	 /*int n, d;
+	 printf("\t\tDigite um numero\n\n\t\t");
+	 scanf("%i", &n);
+	 printf("\n\n\t\tOs seus digitos sao: \n\n\t\t");
+	 while( n != 0) {
+		d = n % 10;
+		n /= 10;
+		printf("\n\n\t\t%i", d);
+	}*/
+
+	//EXIBIR NUMEROS ATE A CONDIÇÃO, DEMONSTRAÇÃO DO...WHILE
+
+	/*int i = 0;
+	do {
+		printf("Numero %i\n\t\t", i);
+		i++;
+	}
+	while(i > 100);*/
+
+	return 0;
+}
